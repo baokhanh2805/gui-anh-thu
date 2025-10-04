@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Gửi Anh Thư</title>
+  <link rel="icon" href="heart.png" type="image/png"> <!-- logo trái tim -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #ffe6f0; /* nền hồng nhạt pastel */
+      color: #333;
+      padding: 30px;
+      overflow-x: hidden;
+    }
+    h1 {
+      color: #e60073;
+      font-size: 40px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+    .heart {
+      font-size: 60px;
+      color: red;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* Ảnh & bong bóng */
+    .image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 25px;
+      gap: 20px;
+    }
+    img.main-img {
+      max-width: 18%;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .thought-bubble {
+      position: relative;
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 50%;
+      padding: 20px;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .thought-bubble::before,
+    .thought-bubble::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid #333;
+    }
+    .thought-bubble::before {
+      width: 20px;
+      height: 20px;
+      bottom: -25px;
+      left: 15px;
+    }
+    .thought-bubble::after {
+      width: 12px;
+      height: 12px;
+      bottom: -40px;
+      left: 5px;
+    }
+
+    /* Nút nhạc */
+    #music-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #e60073;
+      color: white;
+      font-size: 22px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    #music-btn:hover {
+      background: #cc005f;
+    }
+    #music-btn.playing {
+      box-shadow: 0 0 15px #e60073;
+    }
+
+    /* Chữ chú thích */
+    .music-text {
+      position: fixed;
+      top: 30px;
+      left: 90px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #e60073;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    /* Sticker Hello Kitty */
+    .sticker {
+      position: fixed;
+      width: 90px;
+      opacity: 0.95;
+      z-index: 0;
+      pointer-events: none;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(10deg); }
+    }
+
+    /* Vị trí sticker */
+    .s1 { top: 40px; left: 40px; }
+    .s2 { top: 120px; right: 60px; }
+    .s3 { bottom: 100px; left: 80px; }
+    .s4 { bottom: 60px; right: 100px; }
+    .s5 { top: 250px; left: 150px; }
+    .s6 { top: 300px; right: 200px; }
+    .s7 { bottom: 200px; left: 200px; }
+    .s8 { bottom: 250px; right: 250px; }
+
+    /* Responsive cho điện thoại */
+    @media (max-width: 600px) {
+      img.main-img { max-width: 40%; }
+      .sticker { width: 60px; }
+      .thought-bubble {
+        width: 70px;
+        height: 70px;
+        font-size: 14px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Gửi em</h1>
+  <div class="heart">❤️</div>
+  <p>
+    Anh xin lỗi vì những thiếu sót, sự vô tâm và đôi khi làm em buồn chán.
+    Anh biết mình chưa hoàn hảo, nhưng tình yêu anh dành cho em luôn chân thành và chưa bao giờ ít đi.
+    Anh sẽ cố gắng hoàn thiện bản thân mình và cho em thấy rằng ở bên anh em sẽ được hạnh phúc.
+    Anh không muốn mất đi em, người con gái anh trân trọng, vì em chính là điều quý giá nhất với anh.
+    <br>
+    Hãy cho anh cơ hội yêu em lần nữa nhé, về với anh nhé.
+  </p>
+
+  <div class="image-container">
+    <img src="anh.jpg" alt="Ảnh của em" class="main-img">
+    <div class="thought-bubble">Hihi cute</div>
+  </div>
+
+  <!-- Sticker Kitty rải rác (ảnh kitty_transparent.png) -->
+  <img src="kitty_transparent.png" class="sticker s1">
+  <img src="kitty_transparent.png" class="sticker s2">
+  <img src="kitty_transparent.png" class="sticker s3">
+  <img src="kitty_transparent.png" class="sticker s4">
+  <img src="kitty_transparent.png" class="sticker s5">
+  <img src="kitty_transparent.png" class="sticker s6">
+  <img src="kitty_transparent.png" class="sticker s7">
+  <img src="kitty_transparent.png" class="sticker s8">
+
+  <!-- Nút nhạc -->
+  <button id="music-btn">🎵</button>
+  <div class="music-text">bấm vào đây đi em</div>
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát nhạc.
+  </audio>
+
+  <script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+    let playing = false;
+
+    btn.addEventListener("click", () => {
+      if (!playing) {
+        music.play();
+        btn.textContent = "⏸️";
+        btn.classList.add("playing");
+      } else {
+        music.pause();
+        btn.textContent = "🎵";
+        btn.classList.remove("playing");
+      }
+      playing = !playing;
+    });
+  </script>
+</body>
+</html>
